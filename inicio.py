@@ -41,7 +41,10 @@ def cargar_archivo():
         st.session_state.df = pd.read_csv(uploaded_file)
         st.markdown('''
                     ## Acerca de los datos
-
+                    ''')
+        col_datos,col_datos2 = st.columns(2)
+        with col_datos:
+            st.markdown('''
                     **Genero:** si el cliente es hombre o mujer
                     
                     **PersonaMayor:** si el cliente es una persona mayor o no (1, 0)
@@ -60,9 +63,10 @@ def cargar_archivo():
                     
                     **SeguridadLinea:** si el cliente tiene seguridad en línea o no (Sí, No, Sin servicio de Internet)
                     
-                    **CopiaSeguridadLinea:** si el cliente tiene copia de seguridad en línea o no (Sí, No, Sin servicio de Internet)
-                    
-                    **ProteccionDispositivo:** si el cliente tiene protección de dispositivo o no (Sí, No, Sin servicio de Internet)
+                    **CopiaSeguridadLinea:** si el cliente tiene copia de seguridad en línea o no (Sí, No, Sin servicio de Internet)''')
+
+        with col_datos2:
+            st.markdown('''**ProteccionDispositivo:** si el cliente tiene protección de dispositivo o no (Sí, No, Sin servicio de Internet)
                     
                     **SoporteTecnico:** si el cliente tiene soporte técnico o no (Sí, No, Sin servicio de Internet)
                     
@@ -80,21 +84,23 @@ def cargar_archivo():
                     
                     **TotalRecargo:** El monto total cobrado al cliente
                     
-                    **Abondono:** Si el cliente abandonó o no (Sí o No)
-                    ''')
+                    **Abondono:** Si el cliente abandonó o no (Sí o No)''')
+
         st.write(f"Contenido del archivo {st.session_state.uploaded_file.type}")
         st.markdown("### :chart_with_upwards_trend: ¿Deseas ver el dataset?, da clic aquí abajo")
         mostrar_dataset = st.checkbox("Mostrar dataset")
 
-        # Mostrar el dataset si la casilla de verificación está marcada
         if mostrar_dataset:
             st.write(st.session_state.df)
     elif "uploaded_file" in st.session_state:
-        st.markdown(f"Archivo previamente subido: **{st.session_state.uploaded_file.name}**")
+        
         
         st.markdown('''
                     ## Acerca de los datos
-
+                    ''')
+        col_datos3,col_datos4 = st.columns(2)
+        with col_datos3:
+            st.markdown('''
                     **Genero:** si el cliente es hombre o mujer
                     
                     **PersonaMayor:** si el cliente es una persona mayor o no (1, 0)
@@ -113,9 +119,10 @@ def cargar_archivo():
                     
                     **SeguridadLinea:** si el cliente tiene seguridad en línea o no (Sí, No, Sin servicio de Internet)
                     
-                    **CopiaSeguridadLinea:** si el cliente tiene copia de seguridad en línea o no (Sí, No, Sin servicio de Internet)
-                    
-                    **ProteccionDispositivo:** si el cliente tiene protección de dispositivo o no (Sí, No, Sin servicio de Internet)
+                    **CopiaSeguridadLinea:** si el cliente tiene copia de seguridad en línea o no (Sí, No, Sin servicio de Internet)''')
+
+        with col_datos4:
+            st.markdown('''**ProteccionDispositivo:** si el cliente tiene protección de dispositivo o no (Sí, No, Sin servicio de Internet)
                     
                     **SoporteTecnico:** si el cliente tiene soporte técnico o no (Sí, No, Sin servicio de Internet)
                     
@@ -133,9 +140,9 @@ def cargar_archivo():
                     
                     **TotalRecargo:** El monto total cobrado al cliente
                     
-                    **Abondono:** Si el cliente abandonó o no (Sí o No)
-                    ''')
-
+                    **Abondono:** Si el cliente abandonó o no (Sí o No)''')
+        
+        st.markdown(f"Archivo previamente subido: **{st.session_state.uploaded_file.name}**")
         st.markdown("### :chart_with_upwards_trend: ¿Deseas ver el dataset?, da clic aquí abajo")
         mostrar_dataset = st.checkbox("Mostrar dataset")
         if mostrar_dataset:
